@@ -5,22 +5,26 @@ const db = require('../data/db-config.js')
 
 
 router.get('/', (req, res)=> {
-    db('projects').then(proj =>{
+    projects.retreave()
+    .then(proj =>{
 
-        
+        res.status(200).json(proj)
+    }).catch(err => {
+
+        res.status(500).json(err)
     })
 })
-router.get('/', (req, res)=> {
-    db('projects').then(proj =>{
 
+router.post('/', (req, res)=> {
+    const userData = req.body
+    projects.add(userData)
+    .then(proj => {
+        res.status(200).json({new_project: 'added'})
+    } ).catch( err =>
+    {
 
-    })
-})
-router.get('/', (req, res)=> {
-    db('projects').then(proj =>{
-
-
-    })
+        res.status( 500 ).json( err );
+    } )
 })
 
 module.exports = router
