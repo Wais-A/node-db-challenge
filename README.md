@@ -40,11 +40,25 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 - [ ] Explain the difference between `Relational Databases` and `SQL`.
 
+A Relational Database is a Database Management System. It is the database software which manages storage, querying, updating, ect . 
+
+SQL is a language which is used to query the RDBMS. 
+
+RDMS application store a Data in tabular form and SQL is designed for managing data held in RDMS. 
+
 - [ ] Why do tables need a `primary key`?
+
+  primary keys are the unique kew or id given to each form of information so that we might be able call it and use it specifically 
 
 - [ ] What is the name given to a table column that references the primary key on another table.
 
+  foreign key
+
 - [ ] What do we need in order to have a _many to many_ relationship between two tables.
+
+join table 
+
+
 
 ## Minimum Viable Product
 
@@ -53,20 +67,30 @@ Take the steps necessary to complete the project from scratch. Start by initiali
 Complete the following tasks:
 
 - [ ] Design the data model and use _knex migrations_ to create the database and tables needed to satisfy the following business rules:
+
   - [ ] a `project` can have multiple `tasks`.
   - [ ] a `task` belongs to only one `project`.
   - [ ] a `project` can use multiple `resources`. Example of `resources` are: computer, conference room, microphone, delivery van.
+  
   - [ ] the same `resource` can be used in multiple `projects`.
+
+
   - [ ] when adding `projects` the client must provide a name, the description is optional.
   - [ ] when adding `resources` the client must provide a name, the description is optional.
   - [ ] when adding a `task` the client must provide a description, the notes are optional.
   - [ ] when adding a `task` the client must provide the `id` of an existing project.
   - [ ] for `projects` and `tasks` if no value is provided for the `completed` property, the API should provide a default value of `false`.
+
+
 - [ ] Build an API with endpoints for:
+
+
   - [ ] adding resources.
   - [ ] retrieving a list of resources.
+
   - [ ] adding projects.
   - [ ] retrieving a list of projects.
+  
   - [ ] adding tasks.
   - [ ] retrieving a list of tasks. **The list of tasks should include the project name and project description**.
 
