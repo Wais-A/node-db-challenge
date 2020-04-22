@@ -44,7 +44,7 @@ exports.up = function(knex) {
     .unsigned()
     .notNullable()
     .references( "id" )
-    .inTable( "projects" )
+    .inTable( "resources" )
     .onDelete( "RESTRICT" )
     .onUpdate( "CASCADE" );
   })
@@ -52,8 +52,8 @@ exports.up = function(knex) {
 
 exports.down = function(knex) {
   return knex.schema
-  .dropTableIfExist('project_resources')
-  .dropTableIfExist('resources')
-  .dropTableIfExist('tasks')
-  .dropTableIfExist('projects')
+  .dropTableIfExists('project_resources')
+  .dropTableIfExists('resources')
+  .dropTableIfExists('tasks')
+  .dropTableIfExists('projects')
 };
