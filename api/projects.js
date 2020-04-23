@@ -16,8 +16,9 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   const { id } = req.params;
   db.getProjectsById(id)
-    .then((get) => {
-      res.status(201).json(get);
+    .then((proj) => {
+      res.status(201).json(proj);
+      console.log({ ...proj, task: [] });
     }).catch((err) => {
       res.status(500).json(err);
     });
@@ -59,9 +60,19 @@ router.get('/:id/resources', (req, res) => {
     .then((get) => {
       res.status(200).json(get);
     }).catch((err) => {
-      console.log(err)
       res.status(500).json(err);
     });
 });
+
+router.delete('/:id', (req, res) => {
+  const { id } = req.params;
+  db.remove(id)
+    .then((get) => {
+      res.status(201).json(get);
+    }).catch((err) => {
+      res.status(500).json(err);
+    });
+});
+
 
 module.exports = router;

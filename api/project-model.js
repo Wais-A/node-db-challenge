@@ -8,7 +8,7 @@ function getProjects() {
 function getProjectsById(id) {
   return db('projects')
     .where({ id })
-    .first();
+    .first() ;
 }
 function getTasks() {
   return db('tasks');
@@ -74,10 +74,10 @@ module.exports = {
   getTasksById,
   getResources,
   getResourcesById,
+  getProjectResources,
   addProjects,
   addTask,
   addResources,
   remove,
   removeResources,
-  getProjectResources,
 };

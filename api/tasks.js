@@ -23,4 +23,15 @@ router.get('/:id', (req, res) => {
     });
 });
 
+router.delete('/:id', (req, res) => {
+  const { id } = req.params;
+  db.remove(id)
+    .then((get) => {
+      res.status(201).json(get);
+    }).catch((err) => {
+      res.status(500).json(err);
+    });
+});
+
+
 module.exports = router;

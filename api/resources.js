@@ -22,6 +22,26 @@ router.get('/:id', (req, res) => {
     });
 });
 
+router.post('/:id/resources', (req, res) => {
+  const { body } = req;
+  db.addResources(body)
+    .then((get) => {
+      res.status(200).json(get);
+    }).catch((err) => {
+      res.status(500).json(err);
+    });
+});
+
+router.delete('/:id', (req, res) => {
+  const { id } = req.params;
+  db.removeResources(id)
+    .then((get) => {
+      res.status(200).json(get);
+    }).catch((err) => {
+      res.status(500).json(err);
+    });
+});
+
 
 // create a resource that is linked to multiple projects
 
